@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
-                  "assets/images/BMW_logo.png",
+                  "assets/images/Q_logo_2.png",
                 ),
               ),
               title: Text(
