@@ -13,12 +13,16 @@ var lightThemeData = ThemeData(
       color: Colors.blueGrey[900],
     ),
     subtitle1: TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
+      color: Colors.blueGrey[900],
     ),
     headline1: TextStyle(color: Colors.blueGrey[800]),
   ),
   bottomAppBarColor: Colors.blueGrey[900],
-  iconTheme: IconThemeData(color: Colors.blueGrey),
+  // iconTheme: IconThemeData(color: Colors.blueGrey),
+  iconTheme: IconThemeData(
+    color: Colors.blueGrey[900],
+  ),
   brightness: Brightness.light,
 );
 
@@ -32,7 +36,7 @@ var darkThemeData = ThemeData(
       decorationColor: Colors.blueGrey[50],
     ),
     subtitle2: TextStyle(
-      color: Colors.white,
+      color: Colors.blueGrey[300],
     ),
     subtitle1: TextStyle(
       color: Colors.blueGrey[300],
@@ -42,6 +46,6 @@ var darkThemeData = ThemeData(
     ),
   ),
   bottomAppBarColor: Colors.black,
-  iconTheme: IconThemeData(color: Colors.blueGrey[200]),
+  iconTheme: IconThemeData(color: Colors.blueGrey[300]),
   brightness: Brightness.dark,
 );
