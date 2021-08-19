@@ -11,6 +11,7 @@ import '../widgets/destination_heading.dart';
 import '../widgets/featured_heading.dart';
 import '../widgets/featured_tiles.dart';
 import '../widgets/floating_quick_access_bar.dart';
+import '../widgets/side_menu.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/';
@@ -64,8 +65,14 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ],
+              // leading: Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Image.asset(
+              //     "assets/images/Q_logo_2.png",
+              //   ),
+              // ),
               title: Text(
-                'EXPLORE',
+                'Qualitas s.r.l.',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
@@ -91,14 +98,14 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ],
-              leading: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  "assets/images/Q_logo_2.png",
-                ),
-              ),
+              // leading: Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Image.asset(
+              //     "assets/images/Q_logo_2.png",
+              //   ),
+              // ),
               title: Text(
-                'EXPLORE',
+                'Qualitas s.r.l.',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
@@ -108,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-      // drawer: ExploreDrawer(),
+      drawer: SideMenu(),
       body: WebScrollbar(
         color: Colors.blueGrey,
         backgroundColor: Colors.blueGrey.withOpacity(0.3),
@@ -128,6 +135,7 @@ class _HomePageState extends State<HomePage> {
                       width: screenSize.width,
                       child: Image.asset(
                         'assets/images/cover.jpg',
+                        // 'assets/images/cover1.jpg',
                         fit: BoxFit.cover,
                       ),
                     ),
