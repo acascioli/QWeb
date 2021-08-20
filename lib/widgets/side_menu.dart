@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../provider/navigation_provider.dart';
+import '../models/navigation_item.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -15,45 +18,60 @@ class SideMenu extends StatelessWidget {
             child: Image.asset("assets/images/logo.png"),
           ),
           DrawerListTile(
-            title: "Dashboard",
+            title: "Home",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
+            press: () {
+              selectItem(
+                context,
+                NavigationItem.home,
+              );
+            },
           ),
+          // DrawerListTile(
+          //   title: "Chi siamo",
+          //   svgSrc: "assets/icons/menu_tran.svg",
+          //   press: () {
+          //     selectItem(
+          //       context,
+          //       NavigationItem.people,
+          //     );
+          //   },
+          // ),
           DrawerListTile(
-            title: "Transaction",
-            svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
-          ),
-          DrawerListTile(
-            title: "Task",
+            title: "Obiettivi",
             svgSrc: "assets/icons/menu_task.svg",
             press: () {},
           ),
           DrawerListTile(
-            title: "Documents",
+            title: "Metodo",
             svgSrc: "assets/icons/menu_doc.svg",
             press: () {},
           ),
           DrawerListTile(
-            title: "Store",
+            title: "Personale",
             svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
+            press: () {
+              selectItem(
+                context,
+                NavigationItem.people,
+              );
+            },
           ),
           DrawerListTile(
-            title: "Notification",
+            title: "Servizi",
             svgSrc: "assets/icons/menu_notification.svg",
             press: () {},
           ),
           DrawerListTile(
-            title: "Profile",
+            title: "Contatti",
             svgSrc: "assets/icons/menu_profile.svg",
             press: () {},
           ),
-          DrawerListTile(
-            title: "Settings",
-            svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
-          ),
+          // DrawerListTile(
+          //   title: "Settings",
+          //   svgSrc: "assets/icons/menu_setting.svg",
+          //   press: () {},
+          // ),
         ],
       ),
     );
@@ -90,4 +108,9 @@ class DrawerListTile extends StatelessWidget {
       ),
     );
   }
+}
+
+void selectItem(BuildContext context, NavigationItem item) {
+  final provider = Provider.of<NavigationProvider>(context, listen: false);
+  provider.setNavigationItem(item);
 }

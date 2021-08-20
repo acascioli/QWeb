@@ -139,14 +139,18 @@ class _HomePageState extends State<HomePage> {
                       width: screenSize.width,
                       child: Image.asset(
                         'assets/images/cover.jpg',
-                        // 'assets/images/cover1.jpg',
+                        // 'assets/images/Q_logo.png',
                         fit: BoxFit.cover,
+                        // fit: BoxFit.scaleDown,
                       ),
                     ),
                   ),
                   Column(
                     children: [
-                      FloatingQuickAccessBar(screenSize: screenSize),
+                      SizedBox(
+                        height: screenSize.height * 0.45,
+                      ),
+                      // FloatingQuickAccessBar(screenSize: screenSize),
                       Container(
                         child: Column(
                           children: [

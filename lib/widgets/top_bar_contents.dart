@@ -2,6 +2,10 @@ import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import '../screens/home_page.dart';
 import 'package:flutter/material.dart';
 
+import '../provider/navigation_provider.dart';
+import '../models/navigation_item.dart';
+import 'package:provider/provider.dart';
+
 class TopBarContents extends StatefulWidget {
   final double opacity;
 
@@ -38,14 +42,38 @@ class _TopBarContentsState extends State<TopBarContents> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'EXPLORE',
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
+              InkWell(
+                // onHover: (value) {
+                //   setState(() {
+                //     value
+                //         ? _isHovering[0] = true
+                //         : _isHovering[0] = false;
+                //   });
+                // },
+                onTap: () {
+                  selectItem(
+                    context,
+                    NavigationItem.home,
+                  );
+                },
+                // child: Container(
+                //   // width: 60,
+                //   height: 40,
+                //   child: Image.asset(
+                //     // 'assets/images/cover.jpg',
+                //     'assets/images/Q_logo_2.png',
+                //     fit: BoxFit.cover,
+                //     // fit: BoxFit.scaleDown,
+                //   ),),
+                child: Text(
+                  'EXPLORE',
+                  style: TextStyle(
+                    color: Colors.blueGrey[100],
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 3,
+                  ),
                 ),
               ),
               Expanded(
@@ -61,12 +89,17 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[0] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        selectItem(
+                          context,
+                          NavigationItem.people,
+                        );
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Discover',
+                            'Obiettivi',
                             style: TextStyle(
                               color: _isHovering[0]
                                   ? Colors.blue[200]
@@ -102,7 +135,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Contact Us',
+                            'Contattaci',
                             style: TextStyle(
                               color: _isHovering[1]
                                   ? Colors.blue[200]
@@ -242,4 +275,9 @@ class _TopBarContentsState extends State<TopBarContents> {
       ),
     );
   }
+}
+
+void selectItem(BuildContext context, NavigationItem item) {
+  final provider = Provider.of<NavigationProvider>(context, listen: false);
+  provider.setNavigationItem(item);
 }
