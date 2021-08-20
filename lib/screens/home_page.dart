@@ -82,40 +82,44 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             )
-          : AppBar(
-              backgroundColor:
-                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
-              elevation: 0,
-              centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.brightness_6),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  color: Theme.of(context).iconTheme.color,
-                  onPressed: () {
-                    EasyDynamicTheme.of(context).changeTheme();
-                  },
-                ),
-              ],
-              // leading: Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: Image.asset(
-              //     "assets/images/Q_logo_2.png",
-              //   ),
-              // ),
-              title: Text(
-                'Qualitas s.r.l.',
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
-                ),
-              ),
+          : PreferredSize(
+              preferredSize: Size(screenSize.width, 1000),
+              child: TopBarContents(_opacity),
             ),
-      drawer: SideMenu(),
+      // : AppBar(
+      //     backgroundColor:
+      //         Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+      //     elevation: 0,
+      //     centerTitle: true,
+      //     actions: [
+      //       IconButton(
+      //         icon: Icon(Icons.brightness_6),
+      //         splashColor: Colors.transparent,
+      //         highlightColor: Colors.transparent,
+      //         color: Theme.of(context).iconTheme.color,
+      //         onPressed: () {
+      //           EasyDynamicTheme.of(context).changeTheme();
+      //         },
+      //       ),
+      //     ],
+      //     // leading: Padding(
+      //     //   padding: const EdgeInsets.all(8.0),
+      //     //   child: Image.asset(
+      //     //     "assets/images/Q_logo_2.png",
+      //     //   ),
+      //     // ),
+      //     title: Text(
+      //       'Qualitas s.r.l.',
+      //       style: TextStyle(
+      //         color: Colors.blueGrey[100],
+      //         fontSize: 20,
+      //         fontFamily: 'Montserrat',
+      //         fontWeight: FontWeight.w400,
+      //         letterSpacing: 3,
+      //       ),
+      //     ),
+      //   ),
+      drawer: ResponsiveWidget.isSmallScreen(context) ? SideMenu() : null,
       body: WebScrollbar(
         color: Colors.blueGrey,
         backgroundColor: Colors.blueGrey.withOpacity(0.3),
